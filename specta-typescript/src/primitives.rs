@@ -105,6 +105,12 @@ pub fn inline(ts: &Typescript, types: &TypeCollection, dt: &DataType) -> Result<
     Ok(s)
 }
 
+pub fn make_reference(ts: &Typescript, types: &TypeCollection, dt: &DataType) -> Result<String, Error> {
+    let mut s = String::new();
+    datatype(&mut s, ts, types, &dt, vec![], false, None)?;
+    Ok(s)
+}
+
 // /// Generate an `export Type = ...` Typescript string for a specific [`DataType`].
 // ///
 // /// Similar to [`export`] but works on a [`FunctionResultVariant`].
